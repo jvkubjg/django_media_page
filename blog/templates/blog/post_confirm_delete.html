@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+        <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <form method="post">{% csrf_token %}
+                <p>Are you sure you want to delete "{{ object.title }}"?</p>
+                <button class="btn btn-outline-danger" type="submit" >Yes, delete</button>
+                <button class="btn btn-outline-secondary" type="submit" >No, keep it</button>
+                
+                </form>
+            </div>
+
+          </div>
+        </article>
+{% endblock content %}
